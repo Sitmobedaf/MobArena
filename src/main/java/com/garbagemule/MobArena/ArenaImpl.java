@@ -29,6 +29,7 @@ import com.garbagemule.MobArena.util.timer.StartDelayTimer;
 import com.garbagemule.MobArena.waves.MABoss;
 import com.garbagemule.MobArena.waves.SheepBouncer;
 import com.garbagemule.MobArena.waves.WaveManager;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
@@ -834,7 +835,7 @@ public class ArenaImpl implements Arena
             return;
         }
         
-        p.setHealth(20.0);
+        p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH));
         plugin.getServer().getScheduler()
             .scheduleSyncDelayedTask(plugin, () -> revivePlayer(p));
         endArena();
